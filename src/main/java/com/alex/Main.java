@@ -3,7 +3,6 @@ package com.alex;
 import com.google.maps.ElevationApi;
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
-import com.google.maps.GeocodingApiRequest;
 import com.google.maps.model.ElevationResult;
 import com.google.maps.model.GeocodingResult;
 import com.google.maps.model.LatLng;
@@ -18,7 +17,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        //store the geolocation key in a string
+        //todo: add your key files
+        // store the geolocation key in a string
         String geolocationKey = null;
         try (BufferedReader reader = new BufferedReader(new FileReader("geolocation_key.txt"))){
             geolocationKey = reader.readLine();
@@ -29,7 +29,8 @@ public class Main {
         }
 
 
-        //store the elevation key in a string
+        //todo: add your key files
+        // store the elevation key in a string
         String elevationKey = null;
         try (BufferedReader reader = new BufferedReader(new FileReader("elevation_key.txt"))){
             elevationKey = reader.readLine();
