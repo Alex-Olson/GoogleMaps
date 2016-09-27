@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 public class Main {
     public static Scanner stringScanner = new Scanner(System.in);
+    public static Scanner numberScanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
 
@@ -51,7 +52,15 @@ public class Main {
 
 
         if (geoResult.length >= 1) {
-            LatLng locationLatLng = geoResult[0].geometry.location;
+            for (int i = 0; i < geoResult.length; i++){
+                System.out.println(i + " " + geoResult[i].formattedAddress);
+            }
+
+            System.out.println("Press the number next to the specfic location you wanted.");
+            int locationOption = numberScanner.nextInt();
+
+
+            LatLng locationLatLng = geoResult[locationOption].geometry.location;
 
             //get the elevation for the location the user input using the lat/long you got from geolocation
             context = new GeoApiContext().setApiKey(elevationKey);
@@ -60,7 +69,7 @@ public class Main {
 
             if (results.length >= 1){
                 ElevationResult mctcElevation = results[0];
-                System.out.println(String.format("The elevation of " + location + " above sea level is %.2f meters.", mctcElevation.elevation));
+                System.out.println(String.format("The elevation of " + geoResult[locationOption].formattedAddress +" above sea level is %.2f meters.", mctcElevation.elevation));
             }
         } else {
             System.out.println("No matches for " + location + " were found.");
