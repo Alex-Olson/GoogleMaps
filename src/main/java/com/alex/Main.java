@@ -10,12 +10,13 @@ import com.google.maps.model.LatLng;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Scanner;
-
+//worked with Anuuke Vannavong for this in lab
 public class Main {
     public static Scanner stringScanner = new Scanner(System.in);
     public static Scanner numberScanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
+
 
         //todo: add your key files
         // store the geolocation key in a string
@@ -51,7 +52,7 @@ public class Main {
         GeocodingResult[] geoResult = GeocodingApi.geocode(context, location).await();
 
 
-
+        //if you got more than one result, print all the results, and ask the user to choose one of them
         if (geoResult.length >= 1) {
             for (int i = 0; i < geoResult.length; i++){
                 System.out.println(i + " " + geoResult[i].formattedAddress);
